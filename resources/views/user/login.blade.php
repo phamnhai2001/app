@@ -17,7 +17,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="../site/assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
 </head>
-
+<style>
+    .text-white {
+        font-size: 25px;
+    }
+</style>
 <body>
     @if ($message = Session::get('error'))
         <div class="alert alert-warning">
@@ -64,10 +68,10 @@
                                 <button type="submit" class="btn btn-danger btn-round btn-fill btn-wd">
                                     Đăng nhập
                                 </button>
-                                <button style="border-radius: 15px;"><a href="{{ url('/') }}">Back</a></button>
+                                <button style="border-radius: 15px; margin-left: 9px; border: none;"><a href="{{ url('/') }}">Back</a></button>
                             </div>
                             <div class="forgot">
-                                <a href="{{ route('register.index') }}">Đăng ký tài khoản?</a>
+                                <a href="{{ route('register.index') }}" style="color: red;">Đăng ký tài khoản?</a>
                             </div>
                         </form>
                     </div>

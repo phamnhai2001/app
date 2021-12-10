@@ -1,18 +1,27 @@
 @extends('layouts.site')
 @section('content')
 
-    <div class="wrapper">
-        <div class="section section-contact-form">
-            <div class="container">
-
-            </div>
-        </div>
-    </div>
-
+<style>
+    .form-control {
+        width: 400px;
+    }
+    .col-md-7 {
+        margin: 0 auto;
+        padding-left: 100px;
+    }
+    .section {
+        padding-top: 5.8%;
+    }
+</style>
     <div class="section">
+
         <div class="text-area">
             <div class="container">
+
                 <div class="row">
+                    <h3>
+                        Chuyên khoa: {{ $doctor->specialist->name_specialist }}
+                    </h3>
                     <div class="col-md-4">
                         @if ($message = Session::get('error'))
                             <div class="alert alert-warning">
@@ -27,9 +36,11 @@
                                 </div>
                             </div>
                         @endif
+
                         <div class="title-area">
-                            {{ $doctor->full_name }}
+
                             <img src="{{ asset('images/' . $doctor->image) }}">
+                            <span style="font-weight: bold; font-size: 19px; color: cadetblue;">{{ $doctor->full_name }}</span>
                             <p>
                                 {!! $doctor->introduce !!}
                             </p>
@@ -41,7 +52,7 @@
 
                             <form action="/process" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 @csrf
-                                <h3>ĐĂNG KÝ LỊCH HẸN</h3>
+                                <h3 style="font-size: 25px; color: brown;">ĐĂNG KÝ LỊCH HẸN</h3>
                                 <label for="">Họ và tên:</label>
                                 <input type="text" name="name_customer" class="form-control">
                                 @error('name_customer')
@@ -62,6 +73,7 @@
                                     </option>
 
                                 </select>
+
                                 <br>
                                 <label for="">Ngày khám :</label>
                                 <input type="date" required name="date" class="form-control" value="{{ $today }}"
@@ -76,7 +88,7 @@
                                     @endforeach
                                 </select>
                                 <br>
-                                <button>Đăng ký</button>
+                                <button style="background-color: #59a7c1; border: none;font-size: 20px; padding: 5px; color: brown;">Đăng ký</button>
                             </form>
                         </div>
                     </div>

@@ -19,8 +19,8 @@
 
                     <div class="f-grid">
                         @foreach ($doctor as $doc)
-                            <div class="f-grid-col">
-                                <a href="/info-doctor/{{ $doc->id_doctor }}">
+                            <div class="f-grid-col transition">
+                                <a href="/information-doctor/{{ $doc->id_doctor }}">
                                     <img src="{{ asset('images/' . $doc->image) }}">
                                     <div class="info">{{ $doc->full_name }}</div>
                                 </a>

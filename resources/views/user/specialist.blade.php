@@ -7,7 +7,7 @@
 
                 <div class="f-grid">
                     @foreach ($specialist as $spec)
-                        <div class="f-grid-col">
+                        <div class="f-grid-col transition">
                             <a href="/info-specialist/{{ $spec->id_specialist }}">
                                 <img src="{{ asset('images/' . $spec->image) }}">
                                 <div class="info">{{ $spec->name_specialist }}</div>

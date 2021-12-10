@@ -7,20 +7,18 @@ use App\Models\DoctorModel;
 use App\Models\SpecialistModel;
 use App\Models\CustomerModel;
 use App\Models\AppointmentModel;
+use App\Models\RestModel;
 use App\Charts\AdminChart;
 use App\Http\Controllers\SpecialistController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\RestController;
 use DB;
+use Exception;
 class StatisticalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $specialist = DB::table('specialist')->count();
@@ -28,94 +26,52 @@ class StatisticalController extends Controller
         $customer = DB::table('customer')->count();
         $news = DB::table('news')->count();
         $appointment = DB::table('appointment_schedule')->get();
-        $rest = DB::table('rest_schedule')->get();
-        if(request()->date_from && request()->date_to){
-            // $rest = DB::table('rest_schedule')
-            // ->selectRaw('rest_schedule.id_doctor,sum(id_time) as total')
-            // ->whereBetween('date',[request()->date_from,request()->date_to])
-            // ->join('doctors','doctors.id_doctor','=','rest_schedule.id_doctor')
-            // ->groupByRaw('rest_schedule.id_doctor')
-            // // ->get();
-            $rest = DB::table('appointment_schedule')
+        $today = date('Y-m-d');
+
+        $date_from = date('Y-m-1') ;
+        if((request()->date_from) > $today){
+            return redirect()->back()->with('error', 'Ngày chọn phải bé hơn ngày hôm nay!');
+        } else {
+            $date_from = request()->date_from;
+        }
+
+        $date_to = date('Y-m-d');
+        if(request()->date_to){
+            $date_to = request()->date_to;
+        }
+
+        //thống kê lịch làm
+            $time = DB::table('appointment_schedule')
             ->select(array('doctors.full_name as full_name', DB::raw('COUNT(appointment_schedule.id_time) as times')))
-            ->whereBetween('date',[request()->date_from,request()->date_to])
+            ->whereBetween('date',[$date_from,$date_to])
             ->join('doctors', 'doctors.id_doctor', '=', 'appointment_schedule.id_doctor')
             ->groupBy('appointment_schedule.id_doctor','full_name')
             ->orderBy('full_name', 'asc')
             ->get();
-           
+
+        $dataChartJS = array();        
+        foreach ($time as $value) {
+            $dataChartJS[] = $value;
         }
-        $data = array();
-        foreach ($rest as $value) {
-            $data[] = $value;
+        $dataChartJS = json_encode($dataChartJS);
+        
+
+        //thống kê lịch hẹn
+        $year =  2021;
+        $data = DB::table("appointment_schedule")
+            ->select(DB::raw("count(id) as appointment"),DB::Raw("month(date) as months"))
+            ->whereYear('date',$year)
+            ->groupBy(DB::raw("month(date)"))
+            ->get();
+
+        $data_appointment = array();
+        foreach ($data as $value) {
+            $data_appointment[] = $value;
         }
-        $data = json_encode($data);
-        return view('admin.statistical.index', compact('specialist','doctor','customer','news','appointment','data'));
-    }
+        $data_appointment = json_encode($data_appointment);
+       
+        return view('admin.statistical.index', compact('specialist','doctor','customer','news','appointment','dataChartJS','data_appointment','today','date_from','date_to'));
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
+    

@@ -9,6 +9,8 @@ use App\Models\RestModel;
 use App\Models\AppointmentModel;
 use App\Models\NewsModel;
 use App\Models\SpecialistModel;
+use Illuminate\Support\Facades\Redirect;
+
 use Exception;
 
 
@@ -25,8 +27,9 @@ class InfoDoctorController extends Controller
             $check = DoctorModel::where('id_doctor', $id_doctor)->firstOrfail();
             $array_time = array();
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $today = date('Y-m-d');
+            $today = date('Y-m-d',mktime(0, 0, 0, date("m"), date("d")+1,date("Y")));
             $doctor = DoctorModel::find($id_doctor);
+            $specialist = SpecialistModel::orderBy('name_specialist')->select('id_specialist', 'name_specialist')->get();
             $rest_schedule = RestModel::where('date', $today)->where('id_doctor', $id_doctor)->get();
             $time = TimeModel::orderBy('start_time', 'ASC')->orderBy('end_time', 'ASC')->select('id_time', 'start_time', 'end_time')->get();
             $appointment_schedule = AppointmentModel::where('date', $today)->where('id_doctor', $id_doctor)->get();
@@ -89,7 +92,10 @@ class InfoDoctorController extends Controller
         $appointment->id_doctor = $id_doctor;
         $appointment->id_customer = $id_customer;
         $appointment->id_time = $id_time;
+
         $appointment->save();
+        // return Redirect::route('user.info-doctor/{id_doctor}')->with('success','Đăng ký thành công');
+
         return view('user.welcome', [
             'specialist' => $specialist,
             'doctor' => $doctor,

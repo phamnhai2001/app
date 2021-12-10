@@ -3,7 +3,7 @@
 @section('content')
 <h4 class="card-title">Chuyên khoa</h4>
 <form action="" method="get" style="float: right">
-    <input type="text" name="search" value="{{ $search }}"> 
+    <input type="text" name="search" value="{{ $search }}">
     <button>Tìm kiếm</button>
 </form>
 <a href="{{ route('specialist.create')}}" style="font-size: 20px;text-transform: uppercase;">Thêm mới</a>
@@ -27,13 +27,13 @@
         <td width="10%" class="text-center">
             <img src="{{ asset('images/' . $specialist->image) }}" width="100px">
         </td>
-        <td>{!!$specialist->introduce!!}</td>
+        <td style="display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{!!$specialist->introduce!!}</td>
         <td class="td-actions">
             <button class="btn btn-success btn-simple btn-xs">
                 <a href="{{ route('specialist.edit', $specialist->id_specialist) }}"> <i class="ti-pencil-alt"></i></a>
             </button>
         </td>
-        <td class="td-actions">   
+        <td class="td-actions">
             <form action="{{ route('specialist.destroy', $specialist->id_specialist) }}" method="post">
                 @method('DELETE')
                 @csrf

@@ -3,6 +3,9 @@
     <div class="section">
         <div class="container">
             <div class="row">
+                <h3 >
+                    <a href="/list-news" style="color: red; text-decoration: underline;">Tin tức</a>
+                </h3>
                 @if ($message = Session::get('error'))
                     <div class="alert alert-warning">
                         <div>
@@ -16,8 +19,8 @@
                         </div>
                     </div>
                 @endif
-                <h2>{{ $news->title }}</h2>
-                <img src="{{ asset('images/' . $news->image) }}">
+                <h2 style="font-size: 30px">{{ $news->title }}</h2>
+                {{-- <img src="{{ asset('images/' . $news->image) }}"> --}}
                 <p>
                     {!! $news->content !!}
                 </p>

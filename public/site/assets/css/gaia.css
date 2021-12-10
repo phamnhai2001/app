@@ -52,7 +52,7 @@ h6,
 .content-blog p {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Cambo", "Times New Roman", serif;
+  font-family: inherit, serif;
 }
 h1 a,
 .h1 a,
@@ -86,14 +86,14 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 2.4em;
+  font-size: 1.1em;
   line-height: 1.25;
   margin: 0.4em 0;
   font-weight: bold;
 }
 
 h3, .h3 {
-  font-size: 1.61em;
+  font-size: 20px;
   line-height: 1.05em;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -111,7 +111,7 @@ h5 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6em;
   font-weight: 400;
   margin: 0 0 .75em;
@@ -136,7 +136,7 @@ small,
 
 a {
   color: #777777;
-  opacity: .7;
+  /* opacity: .7; */
   font-size: 14px;
 }
 a:hover {
@@ -855,9 +855,10 @@ a.carousel-control span.fa {
 .btn-danger.btn-fill,
 .navbar .navbar-nav > li > a.btn-danger.btn-fill {
   color: #FFFFFF;
-  background-color: #ADD8E6;
+  background-color: #59a7c1;
   opacity: 1;
   filter: alpha(opacity=100);
+  border: none;
 }
 .btn-danger.btn-fill:hover, .btn-danger.btn-fill:focus, .btn-danger.btn-fill:active, .btn-danger.btn-fill.active, .open > .btn-danger.btn-fill.dropdown-toggle,
 .navbar .navbar-nav > li > a.btn-danger.btn-fill:hover,
@@ -865,7 +866,7 @@ a.carousel-control span.fa {
 .navbar .navbar-nav > li > a.btn-danger.btn-fill:active,
 .navbar .navbar-nav > li > a.btn-danger.btn-fill.active, .open >
 .navbar .navbar-nav > li > a.btn-danger.btn-fill.dropdown-toggle {
-  background-color: #e47a80;
+  background-color: #00abc0;
   color: #FFFFFF;
 }
 .btn-danger.btn-fill .caret,
@@ -1237,6 +1238,8 @@ a.carousel-control span.fa {
 }
 .section [class*="col-"] .title-area {
   padding: 0;
+  text-align: left;
+  font-size: 18px;
 }
 .section .text-area {
   padding: 4.375em 0;
@@ -1567,7 +1570,7 @@ a.carousel-control span.fa {
 }
 .navbar .navbar-nav.navbar-uppercase > li > a {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0px;
   font-weight: 600;
   text-transform: uppercase;
@@ -1724,7 +1727,7 @@ a.carousel-control span.fa {
   [class*="navbar-ct"] .navbar-nav > li > a:focus:not(.btn) {
     background-color: transparent;
     border-radius: 3px;
-    color: #FFFFFF;
+    color: #7c7878;
     opacity: 1;
     filter: alpha(opacity=100);
   }
@@ -2203,7 +2206,7 @@ a.carousel-control span.fa {
   color: #141414;
 }
 .card a {
-  opacity: .85;
+  /* opacity: .85; */
 }
 .card:hover .header {
   opacity: 1;
@@ -2219,9 +2222,9 @@ a.carousel-control span.fa {
 }
 .card .image-header,
 .card .header img {
-  width: 80%;
+  width: 100%;
   border-radius: 4px 4px 0 0;
-  margin-left: 100px;
+  padding: 0 45px;
 }
 .card .image-header.image-full,
 .card .header img.image-full {
@@ -2249,8 +2252,9 @@ a.carousel-control span.fa {
 .card-blog .content {
   position: relative;
   text-align: center;
-  padding: 25px;
-  width: 80%
+  padding: 25px 0;
+  width: 100%;
+  margin: 0 auto;
 }
 .card-blog .circle-black {
   margin-top: -52px;
@@ -2272,6 +2276,7 @@ a.carousel-control span.fa {
   line-height: 1.358823529em;
   margin-bottom: 10px;
   color: #333333;
+  font-size: 30px;
 }
 .card-blog .date-wrapper {
   position: relative;
@@ -2293,7 +2298,7 @@ a.carousel-control span.fa {
   text-transform: uppercase;
   display: block;
   line-height: 1.2;
-  font-size: 12px;
+  font-size: 15px;
 }
 .card-blog .card-category {
   margin-top: 10px;
@@ -4968,4 +4973,11 @@ body {
   margin-left: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
+}
+
+.transition {
+    transition: transform 0.5s , opacity 0.5s;
+}
+.transition:hover {
+    transform: scale(1.05);
 }

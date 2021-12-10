@@ -7836,6 +7836,8 @@ star {
 }
 .card .numbers p {
   margin: 0;
+  color: darkcyan;
+    font-weight: 600;
 }
 .card .pull-right .label {
   margin-top: 7px;

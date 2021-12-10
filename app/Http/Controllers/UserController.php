@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $email = $request->get('email');
         $password = $request->get('password');
-        
+
         try{
             $user = User::where('email', '=', $email)->first();
             $newPass = $user->password;
@@ -28,15 +28,15 @@ class UserController extends Controller
             if (Hash::check($password, $newPass)) {
                 $request->session()->put('user', $user);
                 $request->session()->put('id', $user->id_customer);
-                
+
                 return Redirect::route('welcome')->with('success','Đăng nhập thành công');
             }else{
-                return Redirect::route('login-customer')->with('error','Đăng nhập sai');
+                return Redirect::route('login-customer')->with('error','Email hoặc mật khẩu không đúng');
             }
         }catch(Exception $e){
-            return Redirect::route('login-customer')->with('error','Đăng nhập sai');
+            return Redirect::route('login-customer')->with('error','Email hoặc mật khẩu không đúng');
         }
-       
+
     }
 
     public function logout(Request $request)

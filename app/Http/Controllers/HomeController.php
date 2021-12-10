@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\SpecialistModel;
+use App\Models\DoctorModel;
+use App\Models\NewsModel;
+
 use Illuminate\Http\Request;
 use DB;
 class HomeController extends Controller
@@ -11,11 +15,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        
-        $specialist = DB::table('specialist')->get();
-        $doctor = DB::table('doctors')->get();
-        $news = DB::table('news')->get();
+    {
+
+        $specialist = SpecialistModel::all();
+        $doctor = DoctorModel::all();
+        $news = NewsModel::orderBy('id','DESC')->paginate(2);
         // dd($specialist);
         return view('user.welcome',[
             'specialist' => $specialist,
@@ -31,7 +35,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -64,7 +68,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-       
+
     }
 
     /**
@@ -76,7 +80,7 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
     }
 
     /**
@@ -87,6 +91,6 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
 }

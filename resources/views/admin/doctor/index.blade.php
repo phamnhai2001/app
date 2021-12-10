@@ -3,7 +3,7 @@
 @section('content')
 <h4 class="card-title">Danh sách bác sĩ</h4>
 <form action="" method="get" style="float: right">
-    <input type="text" name="search" value="{{ $search }}"> 
+    <input type="text" name="search" value="{{ $search }}">
     <button>Tìm kiếm</button>
 </form>
 <a href="{{ route('doctor.create')}}" style="font-size: 20px;text-transform: uppercase;">Thêm mới</a>
@@ -39,7 +39,7 @@
         <td>{{ $doctor->date_birth }}</td>
         <td>{{ $doctor->email }}</td>
         <td>{{ $doctor->specialist->name_specialist }}</td>
-        <td>{!!$doctor->introduce!!}</td>
+        <td style="display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{!!$doctor->introduce!!}</td>
         <td class="td-actions text-right">
             <button class="btn btn-success btn-simple btn-xs">
                 <a href="{{ route('doctor.edit', $doctor->id_doctor) }}"> <i class="ti-pencil-alt"></i></a>

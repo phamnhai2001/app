@@ -29,7 +29,22 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('ad/assets') }}/css/themify-icons.css" rel="stylesheet">
 </head>
-
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+    .button-signin {
+        text-align: center;
+    }
+    .form-control {
+        width: 500px;
+    }
+    h2 {
+        color: cadetblue;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+    }
+</style>
 <body>
     <div class="section section-white section-signup">
         <div class="static-image">
@@ -37,8 +52,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-4 text-center">
-                        <h2 class="text-white">Đăng ký</h2>
+                    <div class="col-md-4 col-md-offset-4 text-center" style="text-align: left;">
+                        <h2 class="text-white">Đăng ký tài khoản</h2>
 
                         <form action="{{ route('register.store') }}" method="post">
                             @csrf
@@ -80,7 +95,6 @@
                                 <label>Giới tính</label>
                                 <input type="radio" name="gender" value="0" checked> Nam
                                 <input type="radio" name="gender" value="1"> Nữ
-                                <!-- <input type="number" required name="phone" placeholder="số điện thoại" class="form-control input-no-border"> -->
                             </div>
                             <div class="form-group">
                                 <label>Email<star>*</star></label>
@@ -102,6 +116,7 @@
                                 <button type="submit" class="btn btn-danger btn-round btn-fill btn-wd">
                                     Đăng ký
                                 </button>
+                                <button style="border-radius: 15px; margin-left: 9px; border: none;"><a href="{{ url('/') }}">Back</a></button>
                             </div>
                         </form>
                     </div>

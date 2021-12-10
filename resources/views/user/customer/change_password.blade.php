@@ -1,5 +1,12 @@
 @extends('layouts.site')
 @section('content')
+    <div class="wrapper">
+        <div class="section section-contact-form">
+            <div class="container">
+
+            </div>
+        </div>
+    </div>
     <div class="section">
         <div class="container">
             <div class="row">

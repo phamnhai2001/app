@@ -1,5 +1,14 @@
 @extends('layouts.site')
 @section('content')
+
+<div class="wrapper">
+    <div class="section section-contact-form">
+        <div class="container">
+
+        </div>
+    </div>
+</div>
+
 <div class="section">
     <div class="container">
         <div class="row">
@@ -7,12 +16,12 @@
                 <table width="100%" class="table">
                 <thead>
                     <tr>
-                        <th>Nguời đặt</th>
-                        <th>Tên bênh nhân</th>
+                        <th>NGƯỜI ĐẶT</th>
+                        <th>TÊN BỆNH NHÂN</th>
                         <th>SĐT</th>
-                        <th>Ngày</th>
-                        <th>Tên bác sĩ</th>
-                        <th>Khung giờ</th>
+                        <th>NGÀY KHÁM</th>
+                        <th>BÁC SĨ</th>
+                        <th>THỜI GIAN</th>
                     </tr>
                 </thead>
                 <tbody>

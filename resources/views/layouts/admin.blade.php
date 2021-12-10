@@ -33,12 +33,12 @@
 <div class="wrapper">
     <div class="sidebar" data-background-color="brown" data-active-color="danger">
 			<div class="logo">
-				<a href="http://www.creative-tim.com" class="simple-text logo-mini">
-					CT
+				<a href="#" class="simple-text logo-mini">
+					AD
 				</a>
 
-				<a href="http://www.creative-tim.com" class="simple-text logo-normal">
-					Creative Tim
+				<a href="#" class="simple-text logo-normal">
+					Hi ADMIN
 				</a>
 			</div>
 	    	<div class="sidebar-wrapper">
@@ -47,42 +47,18 @@
 	                    <img src="{{ asset('ad/assets') }}/img/faces/face-2.jpg" />
 	                </div>
 	                <div class="info">
-						<a data-toggle="collapse" href="#collapseExample" class="collapsed">
+						<a data-toggle="collapse" href="#" class="collapsed">
 	                        <span>
-								Chet Faker
-		                        <b class="caret"></b>
+								ADMIN
+
 							</span>
 	                    </a>
-						<div class="clearfix"></div>
-
-	                    <div class="collapse" id="collapseExample">
-	                        <ul class="nav">
-	                            <li>
-									<a href="#profile">
-										<span class="sidebar-mini">Mp</span>
-										<span class="sidebar-normal">My Profile</span>
-									</a>
-								</li>
-	                            <li>
-									<a href="#edit">
-										<span class="sidebar-mini">Ep</span>
-										<span class="sidebar-normal">Edit Profile</span>
-									</a>
-								</li>
-	                            <li>
-									<a href="#settings">
-										<span class="sidebar-mini">S</span>
-										<span class="sidebar-normal">Settings</span>
-									</a>
-								</li>
-	                        </ul>
-	                    </div>
 	                </div>
 	        </div>
 	        <ul class="nav">
 					<li>
 	                    <a href="{{ route('time.index')}}">
-	                        <i class="ti-pencil-alt"></i>
+	                        <i class="ti-time"></i>
 	                        <p>Giờ làm việc</p>
 	                    </a>
 	                </li>
@@ -122,10 +98,10 @@
 	                        <p>Lịch hẹn bệnh nhân</p>
 	                    </a>
 	                </li>
-					
+
 					<li>
 	                    <a href="{{ route('statistical.index') }}">
-	                        <i class="ti-calendar"></i>
+	                        <i class="ti-bar-chart"></i>
 	                        <p>Thống kê</p>
 	                    </a>
 	                </li>
@@ -152,18 +128,11 @@
 	                        <span class="icon-bar bar2"></span>
 	                        <span class="icon-bar bar3"></span>
 	                    </button>
-	                    <a class="navbar-brand" href="#Dashboard">
-							Quản lý
+	                    <a class="navbar-brand" href="/admin/dashboard">
+							QUẢN LÝ
 						</a>
 	                </div>
 	                <div class="collapse navbar-collapse">
-
-						<form class="navbar-form navbar-left navbar-search-form" role="search">
-	    					<div class="input-group">
-	    						<span class="input-group-addon"><i class="fa fa-search"></i></span>
-	    						<input type="text" value="" class="form-control" placeholder="Search...">
-	    					</div>
-	    				</form>
 
 	                    <ul class="nav navbar-nav navbar-right">
 	                        <li>
@@ -208,7 +177,7 @@
 	                	<div class="col-md-12">
 	                    	<div class="card">
 								<div class="card-header">
-	                            </div> 
+	                            </div>
                     			@yield('content')
 							</div>
 						</div>
@@ -220,24 +189,24 @@
                     <nav class="pull-left">
                         <ul>
                             <li>
-                                <a href="http://www.creative-tim.com">
-                                    Creative Tim
+                                <a href="#">
+                                   eDoctor
                                 </a>
                             </li>
                             <li>
-                                <a href="http://blog.creative-tim.com">
+                                <a href="#">
                                    Blog
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.creative-tim.com/license">
+                                <a href="#">
                                     Licenses
                                 </a>
                             </li>
                         </ul>
                     </nav>
                     <div class="copyright pull-right">
-                        &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                        &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">me</a>
                     </div>
                 </div>
             </footer>
@@ -250,7 +219,7 @@
 	<script src="{{ asset('ad/assets') }}/js/jquery-ui.min.js" type="text/javascript"></script>
 	<script src="{{ asset('ad/assets') }}/js/perfect-scrollbar.min.js" type="text/javascript"></script>
 	<script src="{{ asset('ad/assets') }}/js/bootstrap.min.js" type="text/javascript"></script>
-	
+
 
 
 	<!-- Promise Library for SweetAlert2 working on IE -->

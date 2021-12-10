@@ -31,7 +31,7 @@ class RestController extends Controller
     public function create()
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $today = date('Y-m-d');
+        $today = date('Y-m-d',mktime(0, 0, 0, date("m"), date("d")+1,date("Y")));
         $listTime = TimeModel::orderBy('start_time', 'ASC')->orderBy('end_time', 'ASC')->select('id_time', 'start_time', 'end_time')->get();
         $listDoctor = DoctorModel::orderBy('full_name')->select('id_doctor', 'full_name')->get();
         return view('admin.rest.create', compact('listTime', 'listDoctor'), [

@@ -1,5 +1,22 @@
 @extends('layouts.site')
 @section('content')
+<style>
+    .item_content {
+        padding-top: 50px;
+        text-align: left;
+        margin-left: 200px;
+    }
+    .item_content h3 {
+        font-size: 20px;
+        color: #c77676;
+        font-family: cursive;
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+    .item_content i {
+        margin-right: 20px
+    }
+</style>
     <div class="section section-presentation-page">
         <div class="parallax filter filter-color-red">
             <div class="image" style="background-image:url('site/assets/img/banner-2.jpg')">
@@ -24,7 +41,7 @@
                         <div class="swiper-wrapper">
                             @foreach ($specialist as $spec)
 
-                                <div class="swiper-slide">
+                                <div class="swiper-slide transition">
                                     <a href="/info-specialist/{{ $spec->id_specialist }}">
                                         <img src="{{ asset('images/' . $spec->image) }}">
                                         <div class="info">{{ $spec->name_specialist }}</div>
@@ -48,8 +65,8 @@
                         <div class="swiper-wrapper">
                             @foreach ($doctor as $doc)
 
-                                <div class="swiper-slide">
-                                    <a href="/info-doctor/{{ $doc->id_doctor }}">
+                                <div class="swiper-slide transition">
+                                    <a href="/information-doctor/{{ $doc->id_doctor }}">
                                         <img src="{{ asset('images/' . $doc->image) }}">
                                         <div class="info">{{ $doc->full_name }}</div>
                                     </a>
@@ -71,6 +88,13 @@
                     </a>
 
                     <p class="text-gray"> Hãy chăm sóc sức khỏe của bản thân</p>
+                    <div class="item_content">
+                        <h3><i class="far fa-check-circle"></i>Khám sức khỏe định kỳ</h3>
+                        <h3><i class="far fa-check-circle"></i>Rửa tay sát khuẩn thường xuyên</h3>
+                        <h3><i class="far fa-check-circle"></i>Đeo khẩu trang khi ra ngoài</h3>
+                        <h3><i class="far fa-check-circle"></i>Hạn chế tập trung đông người</h3>
+                        <h3><i class="far fa-check-circle"></i>Khai báo y tế hằng ngày</h3>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-6 col-sm-offset-1">

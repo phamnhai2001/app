@@ -60,9 +60,9 @@
                                     </div>
                                     <div class="card-footer text-center">
                                         <button type="submit" class="btn btn-fill btn-wd ">Log in</button>
-                                        <div class="forgot">
-                                            <a href="#pablo">Forgot your password?</a>
-                                        </div>
+                                    </div>
+                                    <div class="forgot">
+                                       <a href="/login-doctor">Đăng nhập với tư cách khác ?</a>
                                     </div>
                                 </div>
                             </form>
